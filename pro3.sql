@@ -1,4 +1,4 @@
-﻿/*
+﻿
 create table cus_pro as (select u.id,u.state, u.name as username, p.name, SUM(o.price*o.quantity) as amount
 from user_t u, product p, order_t o
 where o.username = u.id 
@@ -12,7 +12,7 @@ where o.username = u.id
 and   o.product = p.id
 group by u.id, p.category
 order by amount desc);
-*/
+
 
 
 create index cus_pro_uid_idx ON cus_pro (id);
