@@ -9,5 +9,7 @@ How to run:  ./runBulk.sh
 TODOS:
 
 1) Merge the customer part into Max's code (Huaipeng)
+
 2) Populating the database and create index (Max)
+
 3) Create trigger (Huaipeng)
