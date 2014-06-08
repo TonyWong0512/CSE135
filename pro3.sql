@@ -42,7 +42,29 @@ and   o.product = p.id
 group by u.id, p.category
 order by amount desc);
 
-/* state - get row header(top 20 product) */
+/* customer - non filter */
+create table temp_prod as (
+select name, amount /*product name*/
+from cus_pro
+order by amount desc
+limit 10
+);
+/*Query returned successfully: 10 rows affected, 21 ms execution time.*/
+create table temp_cus as (
+select id, username, amount
+from cus_pro
+order by amount desc
+limit 20
+);
+/*Query returned successfully: 20 rows affected, 12 ms execution time.*/
+select amount
+from cus_pro
+where id in (select id from temp_cus)
+and name /*product name*/ in (select name from temp_prod)
+/*Query returned successfully: 200 rows affected, 2903 ms execution time.*/
+
+
+
 
 
 create index cus_pro_uid_idx ON cus_pro (id);
